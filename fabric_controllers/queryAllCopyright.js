@@ -13,8 +13,8 @@ var client = new hfc();
 
 
 const params = process.argv.splice(2);
-if(params.length < 1){
-  console.log('please enter at least 1 parameter: img_id');
+if(params.length > 0){
+    console.log('no parameters please');
 }else{
     Promise.resolve().then(() => {
         console.log("Load peer privateKey and signedCert");
@@ -53,7 +53,7 @@ if(params.length < 1){
         const request = {
             chaincodeId: options.chaincode_id,
             txId: transaction_id,
-            fcn: 'queryCopyrightByImgId',
+            fcn: 'queryAllCopyright',
             args: params
         };
         // send the query proposal to the peer

@@ -14,7 +14,7 @@ var client = new hfc();
 
 const params = process.argv.splice(2);
 if(params.length < 1){
-  console.log('please enter at least 1 parameter: img_id');
+    console.log('please enter at least 1 parameter: img_id');
 }else{
     Promise.resolve().then(() => {
         console.log("Load peer privateKey and signedCert");

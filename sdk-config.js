@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require("path");
 // 请在此配置sdk文件的路径和用户名
-var sdkfile = "F:\\hypercool\\sdk-config\\HyperCool-sdk-config.json";
+var sdkfile = "C:\\Users\\Administrator\\Downloads\\bupt\\hypercool\\sdk-config\\HyperCool-sdk-config.json";
 var tmp_user_id = "Admin";
 
 // 解析sdk-config-yaml文件获取配置信息
