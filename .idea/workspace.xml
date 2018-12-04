@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70b3a088-5a39-495d-bb15-9a3f6768553e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/fabric_controllers/queryAllCopyright.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fabric_controllers/queryCopyrightByImgId.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fabric_controllers/queryCopyrightByOwnerID.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fabric_controllers/transferCopyright.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fabric_controllers/uploadCopyright.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric_controllers/enrollment.js" beforeDir="false" afterPath="$PROJECT_DIR$/fabric_controllers/enrollment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric_controllers/transact.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdk-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/sdk-config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fabric_controllers/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -82,11 +72,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fabric_controllers/queryAllCopyright.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+            <state relative-caret-position="-626">
+              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fabric_controllers/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret column="40" selection-start-column="40" selection-end-column="40" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -105,15 +107,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
               <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -141,6 +134,7 @@
         <option value="$PROJECT_DIR$/fabric_controllers/queryCopyrightByImgId.js" />
         <option value="$PROJECT_DIR$/fabric_controllers/queryCopyrightByOwnerID.js" />
         <option value="$PROJECT_DIR$/fabric_controllers/queryAllCopyright.js" />
+        <option value="$PROJECT_DIR$/fabric_controllers/README.md" />
       </list>
     </option>
   </component>
@@ -218,12 +212,12 @@
       <workItem from="1543915123172" duration="683000" />
       <workItem from="1543916440739" duration="310000" />
       <workItem from="1543918220892" duration="3145000" />
-      <workItem from="1543928910588" duration="3399000" />
+      <workItem from="1543928910588" duration="3677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7537000" />
+    <option name="totallyTimeSpent" value="7815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -353,8 +347,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fabric_controllers/queryAllCopyright.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+        <state relative-caret-position="-626">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fabric_controllers/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="40" selection-start-column="40" selection-end-column="40" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

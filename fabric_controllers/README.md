@@ -1,0 +1,1 @@
+# This is nodejs test code for chaincode
