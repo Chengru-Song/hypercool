@@ -85,25 +85,25 @@ if(params.length < 6){
         } else {
             console.error('Transaction proposal was bad');
         }
-        if (isProposalGood) {
-            console.log(util.format(
-                'Successfully sent Proposal and received ProposalResponse: Status - %s, message - "%s"',
-                proposalResponses[0].response.status, proposalResponses[0].response.message));
+                   if (isProposalGood) {
+                console.log(util.format(
+                    'Successfully sent Proposal and received ProposalResponse: Status - %s, message - "%s"',
+                    proposalResponses[0].response.status, proposalResponses[0].response.message));
 
-            // build up the request for the orderer to have the transaction committed
-            var request = {
-                proposalResponses: proposalResponses,
-                proposal: proposal
-            };
+                // build up the request for the orderer to have the transaction committed
+                var request = {
+                    proposalResponses: proposalResponses,
+                    proposal: proposal
+                };
 
-            // set the transaction listener and set a timeout of 30 sec
-            // if the transaction did not get committed within the timeout period,
-            // report a TIMEOUT status
-            var transaction_id_string = tx_id.getTransactionID(); //Get the transaction ID string to be used by the event processing
-            var promises = [];
+                // set the transaction listener and set a timeout of 30 sec
+                // if the transaction did not get committed within the timeout period,
+                // report a TIMEOUT status
+                var transaction_id_string = tx_id.getTransactionID(); //Get the transaction ID string to be used by the event processing
+                var promises = [];
 
-            var sendPromise = channel.sendTransaction(request);
-            promises.push(sendPromise); //we want the send transaction first, so that we know where to check status
+                var sendPromise = channel.sendTransaction(request);
+                promises.push(sendPromise); //we want the send transaction first, so that we know where to check status
 
             // get an eventhub once the fabric client has a user assigned. The user
             // is required bacause the event registration must be signed

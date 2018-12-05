@@ -3,9 +3,45 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery.min.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <form action="" class="uploadForm">
+      <input type="file" class="file1" name="upload">
+      <button class="ajaxSubmit">submit</button>
+    </form>
   </body>
+  <script>
+    $(document).ready(function () {
+
+        $('.ajaxSubmit').click(function (e) {
+            e.preventDefault();
+            alert('jh');
+            var formData = new FormData();
+            formData.append('upload', $('.file1')[0].files[0]);
+            formData.append('owner_name', 'jason');
+            formData.append('owner_id', 'jfjdid');
+            formData.append('owner_mail', '12345609@qq.com');
+            formData.append('owner_password', 'fdsafdsafda');
+            formData.append('img_title', '生活');
+            $.ajax({
+                type:'POST',
+                url: 'http://localhost:3000/uploadCopyright',
+
+                data: formData,
+                processData: false,
+                contentType: false,
+
+                success: function (res) {
+                  alert(res);
+                },
+                err: function (err) {
+                  console.log(err);
+                }
+            })
+        })
+    })
+  </script>
 </html>
