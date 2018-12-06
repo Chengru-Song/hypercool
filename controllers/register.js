@@ -15,9 +15,14 @@ exports.addOwner = function (req, res, next) {
 
     // 进行添加用户
     const params = [owner_id, req.body.owner_name, req.body.owner_mail];
+    console.log(params);
     invoke.invoke(params, 'addOwner')
         .then(result => {
-            res.send(result);
+            res.send({
+                code: result.code,
+                message: result.message,
+                owner_id: owner_id
+            });
         })
         .catch(err => {
             res.send(err);
@@ -30,7 +35,7 @@ exports.uploadCopyright = async function (req, res, next) {
     const filename = req.file.filename;
     const filepath = path.join(__dirname + '/../upload/' + filename);
     const img_id = await imghash.hash(filepath);
-
+    let owner_id = '';
     // 上传图片至ipfs并获得哈希值
     const content = fs.createReadStream(filepath);
     const imgs = [{
@@ -44,12 +49,18 @@ exports.uploadCopyright = async function (req, res, next) {
             console.log(result[0].hash);
 
             // 将用户信息写入区块链
-            const params = [req.body.owner_password, req.body.owner_name, req.body.owner_mail,img_id,img_hash,req.body.img_title];
+            owner_id = crypto.createHash('md5').update(req.body.owner_password).digest('hex');
+            const params = [owner_id, req.body.owner_name, req.body.owner_mail,img_id,img_hash,req.body.img_title];
             console.log(params);
             return invoke.invoke(params, 'uploadCopyright')
         })
         .then(result => {
-            res.send(result);
+            res.send({
+                code: result.code,
+                message: result.message,
+                img_id:img_id,
+                img_hash: img_hash
+            });
         })
         .catch(err => {
             if(err.code === 202){
@@ -63,6 +74,7 @@ exports.uploadCopyright = async function (req, res, next) {
 // 进行转账，实则改变图片拥有者
 exports.transferCopyright = function (req, res, next) {
     const params = [req.body.raw_id, req.body.img_id, req.body.new_owner_id];
+    console.log(params);
     invoke.invoke(params, 'transferCopyright')
         .then(result => {
             res.send(result);

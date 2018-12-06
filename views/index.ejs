@@ -6,39 +6,153 @@
     <script src="/javascripts/jquery.min.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <form action="" class="uploadForm">
-      <input type="file" class="file1" name="upload">
-      <button class="ajaxSubmit">submit</button>
+    <div>
+      <h2>uploadCopyright</h2>
+      <form action="" class="uploadForm">
+        <input type="file" class="file1" name="upload">
+        <input type="text" class="owner_name" placeholder="用户姓名owner_name">
+        <input type="text" class="owner_password" placeholder="用户密码，会生成owner_id">
+        <input type="email" class="owner_email" placeholder="用户邮箱，owner_mail">
+        <input type="text" class="img_title" placeholder="图片标题，img_title">
+        <button class="ajaxSubmit">submit</button>
+      </form>
+    </div>
+    <div>
+      <h2>addOwner</h2>
+      <form action="" class="addOwner">
+        <input type="text" class="user_name" placeholder="用户name">
+        <input type="text" class="user_pass" placeholder="用户密码（会转换成唯一ID）">
+        <input type="email" class="user_mail" placeholder="用户邮箱">
+        <button class="addOwnerSubmit">submit</button>
+      </form>
+    </div>
+    <div>
+      <h2>transferCopyright</h2>
+      <form action="" class="transferCopyright">
+        <input type="text" class="raw_id" placeholder="用户名raw_id">
+        <input type="text" class="img_id" placeholder="img_id">
+        <input type="email" class="new_owner_id" placeholder="另个用户md5">
+        <button class="transfer">submit</button>
+      </form>
+    </div>
+    <div>
+      <h2>queryCopyrightByImgID</h2>
+      <form action="" class="queryCopyrightByImgID">
+        <input type="text" class="img_id2" placeholder="img_id是一个md5值">
+        <button class="queryimgid">submit</button>
+      </form>
+    </div>
+
+  <div>
+    <h2>queryCopyrightByOwnerID</h2>
+    <form action="" class="queryCopyrightByOwnerID">
+      <input type="text" class="owner_id" placeholder="owner_id用户的md5值">
+      <button class="queryownerid">submit</button>
     </form>
+  </div>
+    <div>
+      <h2>queryAllCopyright</h2>
+      <form action="" class="queryAllCopyright">
+        <input type="text" class="owner_id" placeholder="owner_id用户的md5值">
+        <button class="queryall">submit</button>
+      </form>
+    </div>
   </body>
   <script>
     $(document).ready(function () {
-
+        $(':input').css('display', 'block');
         $('.ajaxSubmit').click(function (e) {
             e.preventDefault();
             alert('jh');
             var formData = new FormData();
             formData.append('upload', $('.file1')[0].files[0]);
-            formData.append('owner_name', 'jason');
-            formData.append('owner_id', 'jfjdid');
-            formData.append('owner_mail', '12345609@qq.com');
-            formData.append('owner_password', 'fdsafdsafda');
-            formData.append('img_title', '生活');
+            formData.append('owner_name', $('.owner_name').val());
+            formData.append('owner_mail', $('.owner_email').val());
+            formData.append('owner_password', $('.owner_password').val());
+            formData.append('img_title', $('.img_title').val());
             $.ajax({
                 type:'POST',
-                url: 'http://localhost:3000/uploadCopyright',
+                url: 'http://114.116.117.96:3000/uploadCopyright',
 
                 data: formData,
                 processData: false,
                 contentType: false,
 
                 success: function (res) {
+                    console.log(res.code, res.message, res.img_id, res.img_hash);
                   alert(res);
                 },
                 err: function (err) {
                   console.log(err);
+                }
+            })
+        })
+
+        $('.addOwnerSubmit').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'http://114.116.117.96:3000/addOwner',
+                data: {
+                    owner_password: $('.user_pass').val(),
+                    owner_name: $('.user_name').val(),
+                    owner_mail: $('.user_mail').val()
+                },
+                success(res){
+                    console.log(res.code, res.message, res.owner_id);
+                }
+            })
+        })
+
+        $('.transfer').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'http://114.116.117.96:3000/transferCopyright',
+                data: {
+                    raw_id: $('.raw_id').val(),
+                    img_id: $('.img_id').val(),
+                    new_owner_id: $('.new_owner_id').val()
+                },
+                success:function(res){
+                    console.log(res.code, res.message);
+                }
+            })
+        })
+        $('.queryimgid').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'http://114.116.117.96:3000/queryCopyrightByImgId',
+                data: {
+                    img_id: $('.img_id2').val(),
+                },
+                success:function(res){
+                    console.log(res.code, res.message);
+                }
+            })
+        })
+        $('.queryownerid').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'http://114.116.117.96:3000/queryCopyrightByOwnerID',
+                data: {
+                    owner_id: $('.owner_id').val(),
+                },
+                success:function(res){
+                    console.log(res.code, res.message);
+                }
+            })
+        })
+        $('.queryall').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'http://114.116.117.96:3000/queryAllCopyright',
+
+                success:function(res){
+                    console.log(res.code, res.message);
                 }
             })
         })

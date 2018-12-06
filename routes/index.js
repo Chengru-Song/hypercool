@@ -25,4 +25,5 @@ router.post('/uploadCopyright',  uploadImage.single('upload'),register.uploadCop
 router.post('/queryCopyrightByImgId', query.queryCopyrightByImgId);
 router.post('/queryCopyrightByOwnerId', query.queryCopyrightByOwnerId);
 router.post('/queryAllCopyright', query.queryAllCopyright);
+router.post('/transferCopyright', register.transferCopyright);
 module.exports = router;

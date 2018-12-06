@@ -10,11 +10,12 @@ exports.queryCopyrightByImgId = function (req, res, next) {
 };
 
 exports.queryCopyrightByOwnerId = function (req, res, next) {
-    const params = [req.body.own_id];
+    const params = [req.body.owner_id];
+    console.log(params);
     query.query(params, 'queryCopyrightByOwnerID').then(result => {
-        console.log(result);
+        res.send(result);
     }).catch(err => {
-        console.log(err);
+        res.send(err);
     })
 };
 
